@@ -105,23 +105,6 @@
                     </Border>
 
                     <!-- Card type selector -->
-                    <Border Background="#111122" CornerRadius="8" Padding="14,10" Margin="0,0,0,12">
-                        <Grid>
-                            <TextBlock Text="TYPE" Foreground="#666688" FontSize="10"
-                                       FontWeight="SemiBold" VerticalAlignment="Center"/>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <RadioButton x:Name="TypeFoil" Content="Foil" GroupName="CardType"
-                                             Foreground="#aaaacc" FontSize="12" Margin="0,0,16,0"
-                                             Checked="CardType_Changed"/>
-                                <RadioButton x:Name="TypeNonFoil" Content="Non-Foil" GroupName="CardType"
-                                             Foreground="#aaaacc" FontSize="12" Margin="0,0,16,0"
-                                             Checked="CardType_Changed"/>
-                                <RadioButton x:Name="TypeDamaged" Content="Damaged" GroupName="CardType"
-                                             Foreground="#aaaacc" FontSize="12"
-                                             Checked="CardType_Changed"/>
-                            </StackPanel>
-                        </Grid>
-                    </Border>
 
                     <!-- Price history graph -->
                     <Border x:Name="GraphBorder" Background="#111122" CornerRadius="8"

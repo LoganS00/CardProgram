@@ -150,9 +150,6 @@
                             <Button Content="$ Refresh Prices"
                                     Style="{StaticResource ActionButtonStyle}"
                                     Background="#225533" Click="WatchlistRefresh_Click" Margin="0,0,8,0"/>
-                            <Button Content="⊕ Mass Add"
-                                    Style="{StaticResource ActionButtonStyle}"
-                                    Background="#3a2255" Click="WatchlistMassAdd_Click"/>
                         </StackPanel>
                         <TextBlock x:Name="WatchlistTotalLabel" Foreground="#55ee88"
                                    FontSize="13" FontWeight="SemiBold"
@@ -237,10 +234,6 @@
                                         Style="{StaticResource ActionButtonStyle}"
                                         Background="#225533"
                                         Click="RefreshPrices_Click" Margin="0,0,8,0"/>
-                                <Button Content="⊕ Mass Add"
-                                        Style="{StaticResource ActionButtonStyle}"
-                                        Background="#3a2255"
-                                        Click="CollectionMassAdd_Click"/>
                             </StackPanel>
                             <TextBox x:Name="SearchBox"
                                      HorizontalAlignment="Right" Width="200"

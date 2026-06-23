@@ -108,7 +108,21 @@ namespace CardProgram
         if (og) imageUrl = og.getAttribute('content') || '';
     }
 
-    return JSON.stringify({ name: name, set: set, price: price, imageUrl: imageUrl });
+    // Detect whether this is a single card product page.
+    // Cards have rarity/card-number attributes; sealed products, accessories, etc. do not.
+    var bodyText = document.body ? document.body.innerText : '';
+    var hasRarity     = /\bRarity\b/i.test(bodyText);
+    var hasCardNumber = /\bCard\s*Number\b/i.test(bodyText) || /\bCard\s*#/i.test(bodyText);
+    var hasCondition  = /\bNear\s*Mint\b/i.test(bodyText);
+    // A product page (not a search/list page) will have a single product title and condition pricing
+    var isProductPage = !!document.querySelector('[class*=""product-details""], [class*=""ProductDetails""]');
+    var isCard = (hasRarity || hasCardNumber) && hasCondition && isProductPage;
+
+    // Detect Japanese cards — TCGPlayer lists them with a "Language: Japanese" attribute
+    var isJapanese = /Language\s*[:\-]\s*Japanese/i.test(bodyText)
+                  || /\bJapanese\b/.test(document.title || '');
+
+    return JSON.stringify({ name: name, set: set, price: price, imageUrl: imageUrl, isCard: isCard, isJapanese: isJapanese });
 })();";
 
         public MainWindow()
@@ -768,10 +782,24 @@ namespace CardProgram
                 var set      = data["set"]?.Value<string>()?.Trim()      ?? string.Empty;
                 var price    = data["price"]?.Value<double?>();
                 var imageUrl = data["imageUrl"]?.Value<string>()?.Trim() ?? string.Empty;
+                var isCard      = data["isCard"]?.Value<bool>() ?? false;
+                var isJapanese  = data["isJapanese"]?.Value<bool>() ?? false;
 
                 if (string.IsNullOrWhiteSpace(name))
                 {
                     SetStatus("Couldn't read the card name. Make sure you're on a single card's product page.");
+                    return;
+                }
+
+                if (!isCard)
+                {
+                    SetStatus("This page doesn't appear to be a single card. Navigate to an individual card's product page and try again.");
+                    return;
+                }
+
+                if (isJapanese)
+                {
+                    SetStatus("Japanese cards are not supported. Please navigate to an English card's product page.");
                     return;
                 }
 

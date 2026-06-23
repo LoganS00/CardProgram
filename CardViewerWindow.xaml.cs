@@ -58,13 +58,6 @@ namespace CardProgram
 
             QtyBlock.Text = card.Quantity.ToString();
 
-            // Set card type radio button
-            switch (card.CardType)
-            {
-                case "Foil":     TypeFoil.IsChecked    = true; break;
-                case "Damaged":  TypeDamaged.IsChecked = true; break;
-                default:         TypeNonFoil.IsChecked = true; break;
-            }
 
             if (!_card.IsLinked || _fetchPrice == null)
                 RefreshPriceBtn.Visibility = Visibility.Collapsed;
@@ -330,14 +323,7 @@ namespace CardProgram
             CardChanged = true;
         }
 
-        private void CardType_Changed(object sender, RoutedEventArgs e)
-        {
-            if (!_loaded) return;
-            _card.CardType = TypeFoil.IsChecked == true ? "Foil"
-                           : TypeDamaged.IsChecked == true ? "Damaged"
-                           : "Non-Foil";
-            CardChanged = true;
-        }
+
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
