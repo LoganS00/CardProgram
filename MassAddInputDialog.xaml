@@ -1,0 +1,63 @@
+<Window x:Class="CardProgram.MassAddInputDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None" Background="#1e1e2e"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize" Width="560" Height="400"
+        KeyDown="Window_KeyDown">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" ResizeBorderThickness="0" UseAeroCaptionButtons="False"/>
+    </WindowChrome.WindowChrome>
+
+    <Border Background="#1e1e2e" BorderBrush="#3a3a5e" BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+            <Border Grid.Row="0" Background="#1a1a2e" Padding="20,14">
+                <Grid>
+                    <StackPanel>
+                        <TextBlock Text="⊕ Mass Add Cards" Foreground="White" FontSize="17" FontWeight="Bold"/>
+                        <TextBlock Foreground="#666688" FontSize="11" Margin="0,4,0,0">
+                            <Run>One card per line — </Run>
+                            <Run Foreground="#aaaaff">1 Kid &amp; Killer [EB-01]</Run>
+                            <Run>  (quantity and set code are optional)</Run>
+                        </TextBlock>
+                    </StackPanel>
+                    <Button Content="✕" HorizontalAlignment="Right" VerticalAlignment="Center"
+                            Click="Cancel_Click" Background="Transparent" Foreground="#aaaacc"
+                            BorderThickness="0" FontSize="16" Cursor="Hand"
+                            WindowChrome.IsHitTestVisibleInChrome="True"/>
+                </Grid>
+            </Border>
+
+            <!-- Text input -->
+            <Border Grid.Row="1" Background="#111122" Padding="16">
+                <Border Background="#2a2a3e" CornerRadius="6" BorderBrush="#4a4a6a" BorderThickness="1">
+                    <TextBox x:Name="InputBox" Background="Transparent" Foreground="White"
+                             BorderThickness="0" Padding="12,10" FontSize="13"
+                             CaretBrush="White" AcceptsReturn="True"
+                             VerticalScrollBarVisibility="Auto"
+                             FontFamily="Consolas" TextWrapping="Wrap"/>
+                </Border>
+            </Border>
+
+            <!-- Footer -->
+            <Border Grid.Row="2" Background="#161625" Padding="16,12"
+                    BorderBrush="#3a3a5e" BorderThickness="0,1,0,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="Cancel" Click="Cancel_Click"
+                            Style="{StaticResource ActionButtonStyle}"
+                            Background="#333344" Margin="0,0,8,0"/>
+                    <Button Content="⊕  Start Adding" Click="Start_Click"
+                            Style="{StaticResource ActionButtonStyle}"
+                            Background="#3a3a8a" Padding="16,7"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Border>
+</Window>

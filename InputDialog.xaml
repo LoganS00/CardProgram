@@ -1,0 +1,28 @@
+<Window x:Class="CardProgram.InputDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None" Background="#1e1e2e"
+        WindowStartupLocation="CenterOwner" SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize" KeyDown="Window_KeyDown">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" ResizeBorderThickness="0" UseAeroCaptionButtons="False"/>
+    </WindowChrome.WindowChrome>
+    <Border Background="#1e1e2e" BorderBrush="#3a3a5e" BorderThickness="1" Padding="24,20" Width="320">
+        <StackPanel>
+            <TextBlock x:Name="PromptBlock" Foreground="#aaaacc" FontSize="13" Margin="0,0,0,10"/>
+            <Border Background="#2a2a3e" CornerRadius="6" BorderBrush="#4a4a6a" BorderThickness="1" Margin="0,0,0,16">
+                <TextBox x:Name="InputBox" Background="Transparent" Foreground="White"
+                         BorderThickness="0" Padding="10,8" FontSize="13"
+                         CaretBrush="White"/>
+            </Border>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Cancel" Click="Cancel_Click"
+                        Style="{StaticResource ActionButtonStyle}"
+                        Background="#333344" Margin="0,0,8,0"/>
+                <Button Content="OK" Click="OK_Click"
+                        Style="{StaticResource ActionButtonStyle}"
+                        Background="#3a3a8a"/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>

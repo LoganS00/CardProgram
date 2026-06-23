@@ -1,0 +1,48 @@
+<Window x:Class="CardProgram.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Settings"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterOwner"
+        SizeToContent="WidthAndHeight">
+
+    <Border Background="#1e1e2e" CornerRadius="12" Padding="24"
+            BorderBrush="#5555cc" BorderThickness="2" Width="440">
+        <StackPanel>
+            <TextBlock Text="Settings" Foreground="White" FontSize="18"
+                       FontWeight="Bold" Margin="0,0,0,20"/>
+
+            <TextBlock Text="TCGPlayer API" Foreground="#8888ff" FontSize="13"
+                       FontWeight="SemiBold" Margin="0,0,0,10"/>
+
+            <TextBlock Foreground="#888899" FontSize="11" TextWrapping="Wrap" Margin="0,0,0,14">
+                Apply for API access at developer.tcgplayer.com — you'll receive a Public Key and Private Key.
+            </TextBlock>
+
+            <TextBlock Text="Public Key:" Foreground="#aaaacc" FontSize="12" Margin="0,0,0,4"/>
+            <Border Background="#2a2a3e" CornerRadius="6" BorderBrush="#4a4a6a"
+                    BorderThickness="1" Margin="0,0,0,12">
+                <TextBox x:Name="PublicKeyBox" Background="Transparent" Foreground="White"
+                         BorderThickness="0" Padding="10,8" FontSize="13" CaretBrush="White"/>
+            </Border>
+
+            <TextBlock Text="Private Key:" Foreground="#aaaacc" FontSize="12" Margin="0,0,0,4"/>
+            <Border Background="#2a2a3e" CornerRadius="6" BorderBrush="#4a4a6a"
+                    BorderThickness="1" Margin="0,0,0,20">
+                <PasswordBox x:Name="PrivateKeyBox" Background="Transparent" Foreground="White"
+                             BorderThickness="0" Padding="10,8" FontSize="13"
+                             CaretBrush="White" PasswordChar="●"/>
+            </Border>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Cancel" Click="Cancel_Click"
+                        Style="{StaticResource ActionButtonStyle}"
+                        Background="#444455" Margin="0,0,10,0"/>
+                <Button Content="Save" Click="Save_Click"
+                        Style="{StaticResource ActionButtonStyle}"/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>

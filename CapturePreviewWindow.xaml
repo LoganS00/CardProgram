@@ -1,0 +1,53 @@
+<Window x:Class="CardProgram.CapturePreviewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add Card to Collection"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight">
+
+    <Border Background="#1e1e2e" CornerRadius="12" Padding="20"
+            BorderBrush="#5555cc" BorderThickness="2">
+        <StackPanel Width="420">
+            <TextBlock Text="Add Card to Collection" Foreground="White"
+                       FontSize="18" FontWeight="Bold" Margin="0,0,0,16"/>
+
+            <Border BorderBrush="#4a4a6a" BorderThickness="1" CornerRadius="6"
+                    Margin="0,0,0,16" Background="#111122">
+                <Image x:Name="PreviewImage" MaxHeight="340" Stretch="Uniform"
+                       Margin="8"/>
+            </Border>
+
+            <TextBlock Text="Card Name:" Foreground="#aaaacc" FontSize="12" Margin="0,0,0,4"/>
+            <Border Background="#2a2a3e" CornerRadius="6" BorderBrush="#4a4a6a"
+                    BorderThickness="1" Margin="0,0,0,12">
+                <TextBox x:Name="CardNameBox"
+                         Background="Transparent" Foreground="White"
+                         BorderThickness="0" Padding="10,8"
+                         FontSize="14" CaretBrush="White"/>
+            </Border>
+
+            <TextBlock Text="Notes (optional):" Foreground="#aaaacc" FontSize="12" Margin="0,0,0,4"/>
+            <Border Background="#2a2a3e" CornerRadius="6" BorderBrush="#4a4a6a"
+                    BorderThickness="1" Margin="0,0,0,20">
+                <TextBox x:Name="NotesBox"
+                         Background="Transparent" Foreground="White"
+                         BorderThickness="0" Padding="10,8"
+                         FontSize="13" CaretBrush="White"
+                         TextWrapping="Wrap" Height="60"
+                         AcceptsReturn="True"/>
+            </Border>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Cancel" Click="Cancel_Click"
+                        Style="{StaticResource ActionButtonStyle}"
+                        Background="#444455" Margin="0,0,10,0"/>
+                <Button Content="Add to Collection" Click="Save_Click"
+                        Style="{StaticResource ActionButtonStyle}"/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>

@@ -1,0 +1,28 @@
+<Window x:Class="CardProgram.RegionSelectOverlay"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="#55000000"
+        Topmost="True"
+        Cursor="Cross"
+        MouseLeftButtonDown="Overlay_MouseDown"
+        MouseMove="Overlay_MouseMove"
+        MouseLeftButtonUp="Overlay_MouseUp"
+        KeyDown="Overlay_KeyDown">
+
+    <Canvas x:Name="RootCanvas">
+        <TextBlock Canvas.Left="20" Canvas.Top="20"
+                   Text="Click and drag to select the card area. Press Esc to cancel."
+                   Foreground="White" FontSize="16" FontWeight="Bold">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="Black" BlurRadius="4" ShadowDepth="2"/>
+            </TextBlock.Effect>
+        </TextBlock>
+
+        <Rectangle x:Name="SelectionRect"
+                   Stroke="#8888ff" StrokeThickness="2"
+                   Fill="#33aaaaff"
+                   Visibility="Collapsed"/>
+    </Canvas>
+</Window>
